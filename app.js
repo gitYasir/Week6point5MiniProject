@@ -1,23 +1,24 @@
-import express from "express";
-import path from "path";
+import express from 'express';
+import path from 'path';
 
-import __dirname from "./dirname.js";
-import cookieParser from "cookie-parser";
-import cors from "cors";
-import logger from "morgan";
+import __dirname from './dirname.js';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import logger from 'morgan';
 
-import router from "./routes/driversRoutes.js";
+import router from './routes/driversRoutes.js';
 
 const app = express();
 
-app.use(logger("dev"));
+app.set('view engine', 'ejs');
+app.set('views', 'public');
+app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/drivers", router);
+app.use('/drivers', router);
 
 app.use(function (req, res, next) {
   res
