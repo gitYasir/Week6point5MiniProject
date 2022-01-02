@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 const router = express.Router();
 
 import {
@@ -8,14 +8,14 @@ import {
   getDriverByName,
   inputNewDriver,
   updateDriverById,
-} from "../models/driversModels.js";
+} from '../models/driversModels.js';
 
-router.get("", async (req, res) => {
+router.get('/', async (req, res) => {
   const drivers = await getAlldrivers();
-  res.json({ success: true, message: `all drivers`, payload: drivers });
+  res.render('index');
 });
 
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   const driverById = await getDriverById(req.params.id);
   res.json({
     success: true,
@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
   });
 });
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   const driverByName = await getDriverByName(req.query.driverName);
   res.json({
     success: true,
@@ -33,14 +33,14 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   let driverName = req.body.driverName;
   let driverNumber = Number(req.body.driverNumber);
   const newDriver = await inputNewDriver(driverName, driverNumber);
   res.json({ success: true, message: `added driver`, payload: newDriver });
 });
 
-router.put("/:id", async (req, res) => {
+router.put('/:id', async (req, res) => {
   let driverName = req.body.driverName;
   let driverNumber = req.body.driverNumber;
   let id = req.params.id;
@@ -52,7 +52,7 @@ router.put("/:id", async (req, res) => {
   });
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   let id = req.params.id;
   const deletedDriver = await deleteDriverById(id);
   res.json({
