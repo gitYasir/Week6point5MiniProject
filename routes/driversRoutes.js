@@ -1,5 +1,6 @@
 import express from 'express';
 const router = express.Router();
+import driversData from '../drivers-data.js';
 
 import {
   deleteDriverById,
@@ -12,7 +13,7 @@ import {
 
 router.get('/', async (req, res) => {
   const drivers = await getAlldrivers();
-  res.render('index');
+  res.render('all-drivers', { driversData });
 });
 
 router.get('/:id', async (req, res) => {
