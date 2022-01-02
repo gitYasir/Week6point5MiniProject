@@ -9,7 +9,11 @@
     <div id="drivers">
       <%if (driversData.length>0){ %> <% driversData.forEach(driver=>{%>
       <div class="driver">
-        <!-- <img class="image" src="https://via.placeholder.com/100" alt="" /> -->
+        <img
+          class="image"
+          src="./Images/<%= driver.driverNumber %>.png "
+          alt=""
+        />
         <h3 class="driverName"><%= driver.driverName %></h3>
         <button class="moreInfo">More</button>
       </div>
