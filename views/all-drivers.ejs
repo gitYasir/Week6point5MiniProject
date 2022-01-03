@@ -1,10 +1,7 @@
 <html lang="en">
   <%- include('./partials/head.ejs')%>
   <body>
-    <nav>
-      <div class="nav-left"><h4>Home</h4></div>
-      <div class="nav-right"><h4>Drivers</h4></div>
-    </nav>
+    <%- include('./partials/nav.ejs')%>
     <h1>2021 F1 Drivers</h1>
     <div id="drivers">
       <%if (driversData.length>0){ %> <% driversData.forEach(driver=>{%>
@@ -15,7 +12,7 @@
           alt=""
         />
         <h3 class="driverName"><%= driver.driverName %></h3>
-        <button class="moreInfo">More</button>
+        <button class="moreInfo"><a href="/driver">More</a></button>
       </div>
       <% }) %> <% } %>
     </div>
