@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon -r dotenv/config bin/www.js",
     "createDriversTable": "node -r dotenv/config ./database/scripts/createDriversTable.js",
-    "populateDriversTable": "node -r dotenv/config ./database/scripts/populateDriversTable.js"
+    "populateDriversTable": "node -r dotenv/config ./database/scripts/populateDriversTable.js",
+    "createRacesTable": "node -r dotenv/config ./database/scripts/createDriversTable.js",
+    "populateRacesTable": "node -r dotenv/config ./database/scripts/createDriversTable.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
