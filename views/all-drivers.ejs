@@ -12,7 +12,9 @@
           alt=""
         />
         <h3 class="driverName"><%= driver.driverName %></h3>
-        <button class="moreInfo"><a href="/driver">More</a></button>
+        <button class="moreInfo">
+          <a href="/drivers/<%= driver.driverNumber %>">More</a>
+        </button>
       </div>
       <% }) %> <% } %>
     </div>

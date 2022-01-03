@@ -1,14 +1,15 @@
-import query from "../database/index.js";
+import query from '../database/index.js';
 
 export async function getAlldrivers() {
   const data = await query(`SELECT * FROM drivers;`);
   return data.rows;
 }
 
-export async function getDriverById(id) {
-  const driver = await query(`SELECT * FROM drivers WHERE driver_id = $1;`, [
-    id,
-  ]);
+export async function getDriverByDriverNumber(driverNumber) {
+  const driver = await query(
+    `SELECT * FROM drivers WHERE driver_number = $1;`,
+    [driverNumber]
+  );
   return driver.rows;
 }
 

@@ -5,7 +5,7 @@ import driversData from '../drivers-data.js';
 import {
   deleteDriverById,
   getAlldrivers,
-  getDriverById,
+  getDriverByDriverNumber,
   getDriverByName,
   inputNewDriver,
   updateDriverById,
@@ -16,13 +16,13 @@ router.get('/', async (req, res) => {
   res.render('all-drivers', { driversData });
 });
 
-router.get('/:id', async (req, res) => {
-  const driverById = await getDriverById(req.params.id);
-  res.json({
-    success: true,
-    message: `found driver with id ${req.params.id}`,
-    payload: driverById,
-  });
+router.get('/:driverNumber', async (req, res) => {
+  const driverByDriverNumber = await getDriverByDriverNumber(
+    req.params.driverNumber
+  );
+  let id = req.params.driverNumber;
+  let driverName = driverByDriverNumber[0].driver_name;
+  res.render('driver', { id, driverName });
 });
 
 router.get('/', async (req, res) => {
